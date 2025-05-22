@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background: #000;
+    font-family: 'Courier New', monospace;
+}
+
+#matrixCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.cyber-title h2 {
+    color: #0f0;
+    font-size: 4em;
+    text-shadow: 0 0 10px #0f0;
+    position: relative;
+    text-transform: uppercase;
+    animation: titleGlow 1.5s ease-in-out infinite alternate;
+}
+
+.cyber-title h2::before {
+    content: attr(data-text);
+    position: absolute;
+    color: #0f0;
+    filter: blur(15px);
+    z-index: -1;
+}
+
+@keyframes titleGlow {
+    0% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
+    display: flex;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.controls button {
+    background: #0f0;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.controls button:hover {
+    background: #0d0;
+    box-shadow: 0 0 10px #0f0;
+}
+
+.controls input[type="color"] {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background: transparent;
+    border: 2px solid #0f0;
+}
+
+.controls input[type="range"] {
+    width: 100px;
+    cursor: pointer;
+    accent-color: #0f0;
+}
